@@ -1,0 +1,156 @@
+html, body {
+    margin: 0; padding: 0;
+    -webkit-text-size-adjust : 100%;
+}
+
+#map {
+    position: fixed;
+    width: 100%;
+    height: 100%
+    }
+
+.map-overlay {
+    font: 11px/24px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    position: absolute;
+    width: 200px;
+    bottom: 0px;
+    left: 0;
+    padding: 5px;
+    background: rgba(255,255,255,0.9);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    line-height: 20px;
+}
+
+.info {
+    padding: 6px 8px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+     
+.map-overlay .map-overlay-inner {
+    background-color: #fff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+     
+.map-overlay-inner fieldset {
+    border: none;
+    padding: 0;
+    margin: 0 0 5px;
+}
+     
+.map-overlay-inner fieldset:last-child {
+    margin: 0;
+}
+     
+.map-overlay-inner select {
+    width: 100%;
+}
+     
+.map-overlay-inner label {
+    display: block;
+    font-weight: bold;
+    margin: 0 0 10px;
+}
+
+.map-overlay-inner button {
+    display: inline-block;
+    width: 36px;
+    height: 20px;
+    border: none;
+    cursor: pointer;
+}
+     
+.map-overlay-inner button:focus {
+    outline: none;
+}
+     
+.map-overlay-inner button:hover {
+    box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.map-overlay i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.9;
+}
+
+#buttons {
+    position: absolute;
+    z-index: 1;
+}
+#buttons>button {
+    display:inline-block;
+    position: relative;
+    justify-content: center;
+    margin: 3px;
+    width: 80px;
+    height: 45px;
+    padding: 5px;
+    border: none;
+    border-radius: 3px;
+    z-index: 1;
+    font-size: 12px;
+    text-align: center;
+}
+
+#icon-loader {
+    position: absolute;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    border: 8px solid #fff;
+    border-radius: 50%;
+    border-top: 8px solid #3498db;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+    z-index: 2;
+}
+
+@keyframes spin{
+    0%{
+      transform: rotate(0deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+}
+
+table.tablestyle01 {
+    table-layout: auto; width: 100%;
+    color:#111; font-size: 13px; font-weight: 500; font-family: Helvetica, "游ゴシック", serif;
+    border-collapse: collapse; border-spacing:0; border:1px solid #777;
+}
+
+table.tablestyle01 th, table.tablestyle02 td{
+    padding: 4px; text-align:left;
+}
+
+table.tablestyle01 tr:nth-child(odd){
+    background-color: #eee
+}
+
+p.remark {
+    color:#555; font-size: 10px; font-weight: normal; font-family: Helvetica, "游ゴシック体", YuGothic, "YuGothic M", sans-serif; 
+}
+
+p.tipstyle01 {
+    color:#111; font-size: 11px; font-weight: normal; font-family: Helvetica, "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+}
+
+p.tipstyle02 {
+    color:#111; font-size: 12px; font-weight: normal; font-family: Helvetica, "游ゴシック体", YuGothic, "YuGothic M", sans-serif;
+}
+
+span.style01 {
+    background: linear-gradient(transparent 85%, #ffd700 80%);
+}

@@ -1,0 +1,14 @@
+{
+"name": "/Users/User/MyProject/02_GIS/Kashiwa/09_vectortile/tippecanoe/data/zxy",
+"description": "/Users/User/MyProject/02_GIS/Kashiwa/09_vectortile/tippecanoe/data/zxy",
+"version": "2",
+"minzoom": "0",
+"maxzoom": "15",
+"center": "139.971313,35.857892,15",
+"bounds": "139.912505,35.780512,140.110101,35.931235",
+"type": "overlay",
+"format": "pbf",
+"generator": "tippecanoe v1.36.0",
+"generator_options": "tippecanoe -zg '--output-to-directory=/Users/User/MyProject/02_GIS/Kashiwa/09_vectortile/tippecanoe/data/zxy' --no-tile-compression --coalesce-fraction-as-needed --extend-zooms-if-still-dropping /Users/User/MyProject/02_GIS/Kashiwa/09_vectortile/tippecanoe/data/kashiwa_building_all.geojson",
+"json": "{\"vector_layers\": [ { \"id\": \"kashiwa_building_all\", \"description\": \"\", \"minzoom\": 0, \"maxzoom\": 15, \"fields\": {\"OID\": \"Number\", \"bldg_class\": \"String\", \"bldg_measuredHeight\": \"Number\", \"bldg_usage\": \"String\"} } ],\"tilestats\": {\"layerCount\": 1,\"layers\": [{\"layer\": \"kashiwa_building_all\",\"count\": 172715,\"geometry\": \"Polygon\",\"attributeCount\": 4,\"attributes\": [{\"attribute\": \"OID\",\"count\": 1000,\"type\": \"number\",\"values\": [1,10,100,1000,10000,100000,100001,100002,100003,100004,100005,100006,100007,100008,100009,10001,100010,100011,100012,100013,100014,100015,100016,100017,100018,100019,10002,100020,100021,100022,100023,100024,100025,100026,100027,100028,100029,10003,100030,100031,100032,100033,100034,100035,100036,100037,100038,100039,10004,100040,100041,100042,100043,100044,100045,100046,100047,100048,100049,10005,100050,100051,100052,100053,100054,100055,100056,100057,100058,100059,10006,100060,100061,100062,100063,100064,100065,100066,100067,100068,100069,10007,100070,100071,100072,100073,100074,100075,100076,100077,100078,100079,10008,100080,100081,100082,100083,100084,100085,100086],\"min\": 1,\"max\": 169760},{\"attribute\": \"bldg_class\",\"count\": 4,\"type\": \"string\",\"values\": [\"3001\",\"3002\",\"3003\",\"3004\"]},{\"attribute\": \"bldg_measuredHeight\",\"count\": 500,\"type\": \"number\",\"values\": [-0.1,-0.2,-0.3,-0.4,-0.5,-0.6,-0.7,-0.8,-1.1,-1.6,-1.7,-1.8,-2,-2.1,-2.6,-24.5,-25,-25.4,-25.6,-25.7,-26.1,-26.3,-26.8,-26.9,-27,-27.3,-27.4,-27.5,-27.6,-27.7,-28.1,-28.2,-28.4,-28.5,-28.6,-28.8,-3.9,-4,-4.9,-5,-5.1,-5.2,-5.3,-5.4,-5.5,-5.6,-7,-8.2,0,0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9,1,1.1,1.2,1.3,1.4,1.5,1.6,1.7,1.8,1.9,10,10.1,10.2,10.3,10.4,10.5,10.6,10.7,10.8,10.9,102.2,106.1,109.9,11,11.1,11.2,11.3,11.4,11.5,11.6,11.7,11.8,11.9,115.6,116.9,12,12.1,12.2,12.3,12.4,12.5,12.6],\"min\": -28.8,\"max\": 128.5},{\"attribute\": \"bldg_usage\",\"count\": 13,\"type\": \"string\",\"values\": [\"401\",\"402\",\"403\",\"411\",\"412\",\"414\",\"421\",\"422\",\"431\",\"441\",\"451\",\"452\",\"461\"]}]}]}}"
+}
