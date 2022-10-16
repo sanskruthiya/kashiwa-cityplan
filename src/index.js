@@ -98,6 +98,44 @@ map.on('load', function () {
         'minzoom': 0,
         'maxzoom': 17
     });
+    /*
+    map.addSource('terrain-kashiwa', {
+        'type': 'raster-dem',
+        'tiles': ["./app/demtiles/{z}/{x}/{y}.png"],
+        'tileSize': 256,
+        'minzoom': 10,
+        'maxzoom': 15,
+    });
+    map.setTerrain({source:'terrain-kashiwa', exaggeration: 2});
+    map.addLayer({
+        'id': 'hills-kashiwa',
+        'type': 'hillshade',
+        'source': 'terrain-kashiwa',
+        'layout': { visibility: 'visible' },
+        'paint': { 'hillshade-shadow-color': '#473B24' }
+    });
+    */
+    map.addSource('hillshade_gsi', {
+        'type': 'raster',
+        'tiles': ['https://cyberjapandata.gsi.go.jp/xyz/hillshademap/{z}/{x}/{y}.png'],
+        'tileSize': 256,
+        'minzoom': 5,
+        'maxzoom': 16
+    });
+    map.addLayer({
+        'id': 'elevation-layer',
+        'type': 'raster',
+        'source': 'hillshade_gsi',
+        'layout': {
+            'visibility': 'none',
+        },
+        'minzoom': 5,
+        'maxzoom': 20,
+        'paint': {
+            'raster-opacity':0.8
+        }
+    });
+   
     map.addLayer({
         'id': 'hazard_flood',
         'type': 'raster',
@@ -108,7 +146,6 @@ map.on('load', function () {
         'minzoom': 5,
         'maxzoom': 17
     });
-
     map.addSource('waterhazard-record', {
         'type': 'geojson',
         'data': './app/waterhazard_kashiwa.geojson',
@@ -467,6 +504,9 @@ document.getElementById('b_hazard').style.color = "#555";
 document.getElementById('b_wrecord').style.backgroundColor = "#fff";
 document.getElementById('b_wrecord').style.color = "#555";
 
+document.getElementById('b_elevation').style.backgroundColor = "#fff";
+document.getElementById('b_elevation').style.color = "#555";
+
 document.getElementById('b_layer').addEventListener('click', function () {
     const visibility = map.getLayoutProperty('zoning_area_1', 'visibility');
     if (visibility === 'visible') {
@@ -520,6 +560,20 @@ document.getElementById('b_wrecord').addEventListener('click', function () {
     }
     else {
         map.setLayoutProperty('waterhazard', 'visibility', 'visible');
+        this.style.backgroundColor = "#2c7fb8";
+        this.style.color = "#fff";
+    }
+});
+
+document.getElementById('b_elevation').addEventListener('click', function () {
+    const visibility = map.getLayoutProperty('elevation-layer', 'visibility');
+    if (visibility === 'visible') {
+        map.setLayoutProperty('elevation-layer', 'visibility', 'none');
+        this.style.backgroundColor = "#fff";
+        this.style.color = "#555"
+    }
+    else {
+        map.setLayoutProperty('elevation-layer', 'visibility', 'visible');
         this.style.backgroundColor = "#2c7fb8";
         this.style.color = "#fff";
     }
@@ -614,7 +668,7 @@ document.getElementById('b_location').addEventListener('click', function () {
 });
 
 const attCntl = new maplibregl.AttributionControl({
-    customAttribution: '<a href="https://disaportal.gsi.go.jp/hazardmap/copyright/opendata.html" target="_blank">洪水浸水想定区域:想定最大規模(ハザードマップポータルサイト, 国土交通省）</a>| <a href="https://www.geospatial.jp/ckan/dataset/plateau-12217-kashiwa-shi-2020" target="_blank">建物・用途地域（2020年度, 3D都市モデルPLATEAU）</a>| <a href="https://www.city.kashiwa.lg.jp/databunseki/shiseijoho/jouhoukoukai/opendate/flood_history.html" target="_blank">水害履歴(2022年7月1日更新, 柏市オープンデータ)</a> | <a href="https://geoshape.ex.nii.ac.jp/ka/resource/12217.html" target="_blank">町丁目字界</a> | <a href="https://www.city.kashiwa.lg.jp/databunseki/shiseijoho/toukei/jinko/daichooaza.html" target="_blank">柏市住民基本台帳人口（2022年4月）</a> | <a href="https://www.city.kashiwa.lg.jp/toshikeikaku/shiseijoho/keikaku/machizukuri/machizukuri/machizukuri.html" target="_blank">柏市のまちづくり</a> | 公開情報に基づき作成者が独自に加工（<a href="https://twitter.com/Smille_feuille" target="_blank">Twitter</a> | <a href="https://github.com/sanskruthiya/kashiwa-cityplan" target="_blank">Github</a>） ',
+    customAttribution: '<a href="https://disaportal.gsi.go.jp/hazardmap/copyright/opendata.html" target="_blank">洪水浸水想定区域:想定最大規模(ハザードマップポータルサイト, 国土交通省）</a>| <a href="https://maps.gsi.go.jp/development/ichiran.html#relief" target="_blank">陰影起伏図(地理院タイル, 国土地理院）</a>| <a href="https://www.geospatial.jp/ckan/dataset/plateau-12217-kashiwa-shi-2020" target="_blank">建物・用途地域（2020年度, 3D都市モデルPLATEAU）</a>| <a href="https://www.city.kashiwa.lg.jp/databunseki/shiseijoho/jouhoukoukai/opendate/flood_history.html" target="_blank">水害履歴(2022年7月1日更新, 柏市オープンデータ)</a> | <a href="https://geoshape.ex.nii.ac.jp/ka/resource/12217.html" target="_blank">町丁目字界</a> | <a href="https://www.city.kashiwa.lg.jp/databunseki/shiseijoho/toukei/jinko/daichooaza.html" target="_blank">柏市住民基本台帳人口（2022年4月）</a> | <a href="https://www.city.kashiwa.lg.jp/toshikeikaku/shiseijoho/keikaku/machizukuri/machizukuri/machizukuri.html" target="_blank">柏市のまちづくり</a> | 公開情報に基づき作成者が独自に加工（<a href="https://twitter.com/Smille_feuille" target="_blank">Twitter</a> | <a href="https://github.com/sanskruthiya/kashiwa-cityplan" target="_blank">Github</a>） ',
     compact: true
 });
 
