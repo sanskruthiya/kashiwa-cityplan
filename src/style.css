@@ -154,3 +154,9 @@ p.tipstyle02 {
 span.style01 {
     background: linear-gradient(transparent 85%, #ffd700 80%);
 }
+
+.maplibregl-ctrl-geocoder {
+    max-width: 80%;
+    top: 150px;
+    left: 2px;
+}
